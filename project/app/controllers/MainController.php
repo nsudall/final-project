@@ -27,6 +27,18 @@ class MainController extends Controller {
         $this->returnView('./assets/views/main/reviews-view.html');
     }
 
+    public function reviewsAddView() {
+        $this->returnView('./assets/views/main/reviews-add.html');
+    }
+
+    public function reviewsDeleteView() {
+        $this->returnView('./assets/views/main/reviews-delete.html');
+    }
+
+    public function reviewsUpdateView() {
+        $this->returnView('./assets/views/main/reviews-update.html');
+    }
+
     public function notFound() {
     }
 

@@ -7,6 +7,8 @@ require '../app/controllers/Controller.php';
 require '../app/controllers/MainController.php';
 require '../app/controllers/UserController.php';
 require '../app/models/User.php';
+require '../app/models/Review.php';
+require '../app/controllers/ReviewController.php';
 
 
 //set up env variables
