@@ -2,7 +2,13 @@ body, html {
     height: 100%;
     margin: 0;
     overflow: hidden;
+    font-family: 'Poppins', sans-serif;
 }
+
+h2 {
+  text-align: center;
+}
+
 .left-box {
     height: 100vh;
     background: #111;
@@ -20,7 +26,7 @@ body, html {
     background: #f8f9fa;
 }
 
-.job-description, .school-description, .intrest-description, .class-description, .interest-description {
+.class-description {
     margin-left: 30px;
 }
 
@@ -55,11 +61,11 @@ hr {
   }
   
   .tag-list li {
-    background-color: #7d1402c5; /* light gray (can customize) */
-    color: #d5c3db;            /* dark text */
-    font-size: 0.75rem;        /* small text */
+    background-color: #7d1402c5; 
+    color: #d5c3db;       
+    font-size: 0.75rem;        
     padding: 0.3rem 0.75rem;
-    border-radius: 9999px;     /* fully rounded for pill shape */
+    border-radius: 9999px;     
     font-weight: 500;
     white-space: nowrap;
   }

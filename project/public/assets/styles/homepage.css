@@ -3,6 +3,9 @@ body, html {
     margin: 0;
     overflow: hidden;
 }
+h2 {
+  text-align: center;
+}
 .left-box {
     height: 100vh;
     background: #111;

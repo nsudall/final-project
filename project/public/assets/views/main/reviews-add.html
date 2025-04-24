@@ -7,7 +7,9 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-        <link rel="stylesheet" href="/assets/styles/homepage.css">
+        <script src="./assets/js/add.js" type="text/javascript"></script>
+        <link rel="stylesheet" href="/assets/styles/reviews.css">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     </head>
     <body>
         <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #4f0332;">
@@ -40,82 +42,39 @@
           </div>
 
           <div class="right-content">
-
-        <div class="container reviews-form margin-thirty">
-            <a href="http://localhost:8888/reviews-view" class="link">Back</a>
-            <h2 class="margin-thirty">Add Review</h2>
-            <form id="form-id">
-                <div class="form-group margin-twenty">
-                    <label for="firstName" id="firstName-label">First Name</label>
-                    <input type="text" class="form-control" id="firstName"
-                           placeholder="Enter First Name">
+            <div class="container my-5">
+              <div class="card shadow-sm">
+                <div class="card-body p-4">
+                  <h2 class="card-title mb-4">Add Review</h2>
+                  <form id="form-id">
+                    <div class="mb-3">
+                      <label for="firstName" class="form-label">First Name</label>
+                      <input type="text" class="form-control" id="firstName" placeholder="Enter First Name">
+                    </div>
+                    <div class="mb-3">
+                      <label for="lastName" class="form-label">Last Name</label>
+                      <input type="text" class="form-control" id="lastName" placeholder="Enter Last Name">
+                    </div>
+                    <div class="mb-3">
+                      <label for="email" class="form-label">Email</label>
+                      <input type="email" class="form-control" id="email" placeholder="Enter Email">
+                    </div>
+                    <div class="mb-3">
+                      <label for="description" class="form-label">Description</label>
+                      <textarea class="form-control" id="description" rows="4" placeholder="Enter Description"></textarea>
+                    </div>
+                    <div id="error-container" class="mb-3 text-danger"></div>
+                    <button type="submit" class="btn text-light" style="background-color: #4f0332;">Submit</button>
+                    <a href="http://localhost:8888/reviews-view" class="btn btn-outline-secondary ms-2">Back</a>
+                  </form>
                 </div>
-                <div class="form-group margin-ten">
-                    <label for="lastName" id="lastName-label">Last Name</label>
-                    <input type="text" class="form-control" id="lastName"
-                           placeholder="Enter Last Name">
-                </div>
-
-                <div class="form-group margin-ten">
-                    <label for="email" id="email-label">Email</label>
-                    <input type="text" class="form-control" id="email"
-                           placeholder="Enter Email">
-                </div>
-
-                <div class="form-group margin-ten">
-                    <label for="description" id="description-label">Description</label>
-                    <input type="text" class="form-control" id="description"
-                           placeholder="Enter Description">
-                </div>
-
-                <button type="submit" class="btn btn-primary submit-button margin-twenty">Submit</button>
-            </form>
+              </div>
+            </div>
+            
 
             <div id="error-container" class="margin-ten"></div>
         </div>
     </div>
-
-        <script>
-
-            $(document).ready(function () {
-
-                $('#form-id').on('submit', function (e) {
-                    e.preventDefault();
-                    const firstName = $('#firstName').val();
-                    const lastName = $('#lastName').val();
-                    const email = $('#email').val();
-                    const description = $('#description').val();
-
-                    const data = {
-                        firstName,
-                        lastName,
-                        email,
-                        description,
-                    }
-                    $.ajax({
-                        url: `http://localhost:8888/api/reviews`,
-                        type: "POST",
-                        data: data,
-                        dataType: "json",
-                        success: function (data) {
-                            console.log(data)
-                            window.location.replace("/reviews-view");
-                        },
-                        error: function (data){
-                            console.log(data.responseJSON)
-
-                            $('#error-container').html('')
-                            for (const property in data.responseJSON) {
-                                $('#error-container').append(` <div class='error-text'>${data.responseJSON[property]}</div>`)
-                            }
-                        }
-                    });
-                })
-
-            })
-
-
-        </script>
 
     </body>
 </html>
