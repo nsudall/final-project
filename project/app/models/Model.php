@@ -10,7 +10,7 @@ abstract class Model {
     }
 
     private function connect() {
-        $string = "mysql:hostname=" . DBHOST . ";dbname=" . DBNAME;
+        $string = "mysql:host=" . DBHOST . ";port=" . DBPORT . ";dbname=" . DBNAME;
         $con = new \PDO($string, DBUSER, DBPASS);
         return $con;
     }

@@ -14,9 +14,21 @@ require '../app/controllers/SearchController.php';
 
 
 //set up env variables
-$env = parse_ini_file('../.env');
+if($_SERVER['SERVER_NAME'] == 'localhost') {
+    $env = parse_ini_file('../.env');
+    /** database config **/
+    define('DBNAME', $env['DBNAME']);
+    define('DBHOST', $env['DBHOST']);
+    define('DBUSER', $env['DBUSER']);
+    define('DBPASS', $env['DBPASS']);
+    define('DBPORT', $env['DBPORT']);
 
-define('DBNAME', $env['DBNAME']);
-define('DBHOST', $env['DBHOST']);
-define('DBUSER', $env['DBUSER']);
-define('DBPASS', $env['DBPASS']);
+} else {
+    /** database config **/
+    define('DBNAME', getenv('DBNAME'));
+    define('DBHOST', getenv('DBHOST'));
+    define('DBUSER', getenv('DBUSER'));
+    define('DBPASS', getenv('DBPASS'));
+    define('DBPORT', getenv('DBPORT'));
+    define('ROOT', 'https://arcane-eyrie-22455-a4ba415920ae.herokuapp.com/');
+}
